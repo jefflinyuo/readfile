@@ -24,6 +24,28 @@ public class CES extends Student {
 		/**
 		 *  Your Read File Work
 		 */
+		int mid=0;
+		String mname="";
+		int mchi=0;
+		int meng=0;
+		int mmath=0;
+		int mavg=0;
+		try {
+			scanner = new Scanner(new File("src/score.txt"));
+			while(scanner.hasNext()) {
+				mid=scanner.nextInt();
+				mname=scanner.next();
+				mchi=scanner.nextInt();
+				meng=scanner.nextInt();;
+				mmath=scanner.nextInt();
+				mavg=scanner.nextInt(mchi+meng+mmath/3);
+				System.out.println("ID: "+mid+"Name: "+mname+"Chi: "+mchi+"Eng: "+meng+"Math: "+mmath+"Avg: "+mavg );
+			}
+		}catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}finally {
+			scanner.close();
+		}
 		
 		return list;
 	}
